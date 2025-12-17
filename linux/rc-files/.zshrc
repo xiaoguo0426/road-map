@@ -128,6 +128,8 @@ alias g="$mycommands/lazygit"
 alias lazyjournal="$mycommands/lazyjournal"
 alias json="$mycommands/json.sh"
 alias jsonc="json -c"
+alias btop="$mycommands/btop/bin/btop"
+
 
 setopt no_nomatch
 
