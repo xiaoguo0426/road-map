@@ -1,0 +1,25 @@
+# 颜色主题
+color:
+  theme: default
+
+# 图标主题
+icons:
+  theme: fancy
+
+# 显示设置
+classic: false
+permission: rwx
+size: default
+date: "+%Y-%m-%d %H:%M"
+blocks: 
+  - permission
+  - user
+  - group
+  - size
+  - date
+  - name
+
+sorting:
+  column: name
+  reverse: false
+  dir-grouping: first
