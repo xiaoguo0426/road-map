@@ -130,7 +130,6 @@ alias json="$mycommands/json.sh"
 alias jsonc="json -c"
 alias btop="$mycommands/btop/bin/btop"
 
-
 setopt no_nomatch
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
