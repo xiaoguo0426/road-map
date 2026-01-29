@@ -48,20 +48,26 @@
 # # Just for example:
 # resize-overlay-duration = 4s 200ms
 
-# 外观
+# 配置项 https://blog.axiaoxin.com/post/ghostty-config-guide/
 
+
+# 外观
+font-family                    = JetBrains Mono
 font-size                      = 12
 
-
-cursor-style				   = block_hollow
+# 选中的文本颜色
+selection-foreground           = #e4d5e6
+selection-background           = #9c4444
+# 光标
+cursor-style				   = block
+cursor-style-blink 			   = true
+cursor-text					   = red
+cursor-color				   = #3ceaaa
 
 # Window
 window-height                  = 30
-window-width                   = 100
-
-# 自动更新设置
-auto-update = download
-auto-update-channel = stable
+window-width                   = 120
+title 						   = "终端"
 
 # 附加功能
 shell-integration-features = true
@@ -69,9 +75,27 @@ copy-on-select = clipboard
 focus-follows-mouse = true
 link-url = true
 
+# 自动更新设置
+auto-update 				   = check
+auto-update-channel 		   = stable
 
-# Key bindings
+
+# Ghostty 快捷键配置
+
+# 窗口分离快捷键
 keybind                        = ctrl+shift+left=new_split:left
 keybind                        = ctrl+shift+down=new_split:down
 keybind                        = ctrl+shift+up=new_split:up
 keybind                        = ctrl+shift+right=new_split:right
+
+
+# Ghostty 其他设置
+shell-integration	           = zsh
+shell-integration-features     = no-cursor
+
+
+term 						   = xterm-256color
+
+
+env = LC_ALL=en_US.UTF-8
+env = LANG=en_US.UTF-8

@@ -117,3 +117,6 @@ if ! shopt -oq posix; then
 fi
 export PATH=$HOME/.local/bin:$PATH
 . "$HOME/.cargo/env"
+
+[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path bash)"
+export PATH=/usr/local/gcc-15.2.0/bin:$PATH

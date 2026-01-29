@@ -129,6 +129,12 @@ alias lazyjournal="$mycommands/lazyjournal"
 alias json="$mycommands/json.sh"
 alias jsonc="json -c"
 alias btop="$mycommands/btop/bin/btop"
+alias nvim="/home/xiaoguo0426/softwares/nvim/bin/nvim"
+alias ls='lsd'
+alias ll='lsd -l'
+alias la='lsd -la'
+alias lt='lsd --tree'
+alias l='lsd -lA'
 
 setopt no_nomatch
 
@@ -146,3 +152,32 @@ if [ -d "$ZSH_FUNCTIONS_DIR" ]; then
         [ -f "$file" ] && source "$file"
     done
 fi
+
+# 添加 proxy 命令
+proxy() {
+    if [[ "$1" == "--on" ]]; then
+        export https_proxy=http://127.0.0.1:7890
+        export http_proxy=http://127.0.0.1:7890
+        export all_proxy=socks5://127.0.0.1:7890
+        echo "代理已开启"
+        echo "https_proxy=$https_proxy"
+        echo "http_proxy=$http_proxy"
+        echo "all_proxy=$all_proxy"
+    elif [[ "$1" == "--off" ]]; then
+        unset https_proxy
+        unset http_proxy
+        unset all_proxy
+        echo "代理已关闭"
+    else
+        echo "用法:"
+        echo "  proxy --on    开启代理"
+        echo "  proxy --off   关闭代理"
+        echo ""
+        echo "当前代理状态:"
+        echo "  http_proxy=${http_proxy:-未设置}"
+        echo "  https_proxy=${https_proxy:-未设置}"
+        echo "  all_proxy=${all_proxy:-未设置}"
+    fi
+}
+
+[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
