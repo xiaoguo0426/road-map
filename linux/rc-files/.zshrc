@@ -113,7 +113,6 @@ source $ZSH/oh-my-zsh.sh
 
 # only for autojump plugin
 
-
 mycommands="/home/xiaoguo0426/my-commands"
 alias lw="$mycommands/lw"
 alias laradock="$mycommands/laradock"
@@ -130,12 +129,14 @@ alias json="$mycommands/json.sh"
 alias jsonc="json -c"
 alias btop="$mycommands/btop/bin/btop"
 alias nvim="/home/xiaoguo0426/softwares/nvim/bin/nvim"
+alias csv="$mycommands/tennis"
 alias ls='lsd'
 alias ll='lsd -l'
 alias la='lsd -la'
 alias lt='lsd --tree'
 alias l='lsd -lA'
-
+alias sd='systemd-manager-tui'
+alias c="glow $mycommands/custome-commands.md"
 setopt no_nomatch
 
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -178,6 +179,15 @@ proxy() {
         echo "  https_proxy=${https_proxy:-未设置}"
         echo "  all_proxy=${all_proxy:-未设置}"
     fi
+}
+
+# for yazi
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	command yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
 }
 
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
